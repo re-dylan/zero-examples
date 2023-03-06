@@ -1,13 +1,11 @@
 package main
 
 import (
-	"fmt"
-	"log"
 	"time"
 
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
-	"github.com/zeromicro/go-zero/core/stores/mongo"
+	//"github.com/zeromicro/go-zero/core/stores/mongo"
 )
 
 type Roster struct {
@@ -19,18 +17,18 @@ type Roster struct {
 }
 
 func main() {
-	model := mongo.MustNewModel("localhost:27017/blackboard", "roster")
-	for i := 0; i < 1000; i++ {
-		session, err := model.TakeSession()
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		var roster Roster
-		filter := bson.M{"_id": bson.ObjectIdHex("587353380cf2d7273d183f9e")}
-		fmt.Println(model.GetCollection(session).Find(filter).One(&roster))
-		model.PutSession(session)
-	}
-
-	time.Sleep(time.Hour)
+	//model := mongo.MustNewModel("localhost:27017/blackboard", "roster")
+	//for i := 0; i < 1000; i++ {
+	//	session, err := model.TakeSession()
+	//	if err != nil {
+	//		log.Fatal(err)
+	//	}
+	//
+	//	var roster Roster
+	//	filter := bson.M{"_id": bson.ObjectIdHex("587353380cf2d7273d183f9e")}
+	//	fmt.Println(model.GetCollection(session).Find(filter).One(&roster))
+	//	model.PutSession(session)
+	//}
+	//
+	//time.Sleep(time.Hour)
 }
